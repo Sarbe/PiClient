@@ -1,0 +1,495 @@
+responeOutput ::
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!--[if lt IE 9]>	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>	<![endif]-->
+<title>Know Your PAN</title>
+<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+<link href="/itax/styles/style.min.css?1477612800000" rel="stylesheet" />
+<script src="/itax/scripts/ITD_Efiling_Common.js?jsVer=1477612800000"></script>
+<script src="/itax/jquery/external/jquery/jquery-2.1.3.min.js"></script>
+<script src="/itax/jquery/jquery-ui.min.js"></script>
+<div id="loading" title="Loading ..." class="disp-none">
+	<div class="al-c">
+		<img src="/itax/images/wait.gif" alt="Loading ..." />
+	</div>
+</div>
+<div id="savingDraft" title="Saving Draft ..." class="disp-none">
+	<div align="center">
+		<img src="/itax/images/wait.gif" alt="Loading ..." />
+	</div>
+</div>
+<div id="prefillingData" title="Prefilling data from ITR ..."
+	class="disp-none">
+	<div align="center">
+		<img src="/itax/images/wait.gif" alt="Loading ..." />
+	</div>
+</div>
+<div id="disclaimer" class="disp-none">
+	<p class="al-j discFont">This is to inform that by clicking on the
+		hyper-link, you will be leaving e-Filing Portal and entering website
+		operated by other parties. Such links are provided only for the
+		convenience of the client and e-Filing Portal does not control or
+		endorse such websites, and is not responsible for their contents. The
+		use of such websites is also subject to the terms of use and other
+		terms and guidlines, if any, contained with in each such website. In
+		the event that any of the terms contained herein conflict with the
+		terms of use or other terms and guidelines contained within any such
+		website, then the terms of use and other terms guidlines for such
+		website shall prevail.</p>
+</div>
+<script type="text/javascript">documentReadyFunction();</script>
+</head>
+<body oncontextmenu="return rightClickDisable()"
+	ondragstart="return false" onselectstart="return false">
+	<section id="container">
+		<header id="header">
+			<!-- Header start -->
+			<div class="logorow">
+				<div class="fl-l">
+					<a href="/"><img src="/itax/images/efilinglogo.gif"
+						title="e-Filing, Income Tax Department, Government of India"
+						alt="e-Filing, Income Tax Department, Government of India"
+						height="58" /></a>
+				</div>
+				<div class="al-r">
+					<nav>
+						<ul class="mart5">
+							<li class="padt5"><a class="skip"
+								href="/eFiling/index_hindi.html"> <img
+									src="/itax/images/hindi_logo.png" alt="Hindi" />
+							</a></li>
+							<li class="padt5"><a class="skip pad0"
+								href="javascript:void(0)"
+								onclick="javascript:changeFontSize(-1,-1);"> <img
+									src="/itax/images/Minimize.png" alt="Minimize" /></a> <a
+								class="skip pad0" href="javascript:void(0)"
+								onclick="javascript:resetFonSize();"><img
+									src="/itax/images/Standard.png" alt="Standard" /> </a> <a
+								class="skip pad0" href="javascript:void(0)"
+								onclick="javascript:changeFontSize(1,1);"><img
+									src="/itax/images/Maximize.png" alt="Maximize" /> </a></li>
+							<li><a href="#main" class="skip padt5">Skip to main
+									content</a></li>
+							<li><a href="javascript:void(0)"
+								onclick="getStaticPage('AboutUs.html')">About Us</a></li>
+							<li><a href="/e-Filing/Services/Feedback.html">Feedback</a></li>
+							<li><a href="javascript:void(0)"
+								onclick="getStaticPage('Contact.html')">Contact Us</a></li>
+							<li><a href="/e-Filing/Services/eNivaranHomePrelogin.html">e-Nivaran</a></li>
+							<li class="help"><a href="#">Help</a> <!-- including div -->
+								<div class="helpmenu">
+									<!--Help contents go here. Add help contents in headerHelp.html -->
+								</div></li>
+						</ul>
+					</nav>
+					<div class="search">
+						<input name="Search" placeholder="Search" type="text" id="inputID"
+							value="" maxlength="100" onkeypress="return onlySearch(event,2)"
+							onclick="resetSearch()" /> <span class="searchimg" title="Search"
+							class="val-m" onclick="searchMe(1)"></span>
+					</div>
+					<br /> <br />
+					<div class="personalDetails">
+						<a href="/e-Filing/UserLogin/LoginHome.html">Login</a> | <a
+							href="/e-Filing/Registration/RegistrationHome.html">Register</a>
+					</div>
+				</div>
+			</div>
+			<script> 	var baseUrl = ""; </script>
+			<div class="navrow">
+				<ul class="menu">
+					<li>
+						<p>
+							<a href="/"><span>Home</span></a>
+						</p>
+					</li>
+					<li>
+						<p>
+							<a href="#" class="top"><span>I Am</span></a>
+						</p>
+						<div class="submenu">
+							<dl>
+								<dt>
+									<a href="#">Tax Payer</a>
+								</dt>
+								<dd>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/IndividualHUF.html');getStaticPage('homeLinks/IndividualHUF.html')"><span>Individual
+											/ HUF</span></a>
+								</dd>
+								<dd>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/firm.html');getStaticPage('homeLinks/firm.html')"><span>Firm</span></a>
+								</dd>
+								<dd>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/trust.html');getStaticPage('homeLinks/trust.html')"><span>Trust</span></a>
+								</dd>
+								<dd>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/company.html');getStaticPage('homeLinks/company.html')"><span>Company</span></a>
+								</dd>
+								<dd>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/aop-boi-la.html');getStaticPage('homeLinks/aop-boi-la.html')"><span>AOP
+											/ BOI / LA / Co-op Soc / AJP/ Gov</span></a>
+								</dd>
+								<dt>
+									<a href="#">Professionals for Tax Audit</a>
+								</dt>
+								<dd>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/ca.html');getStaticPage('homeLinks/ca.html')">Chartered
+										Accountant</a>
+								</dd>
+								<!--<li><a href="#">Tax Deductor</span></a></li>-->
+								<dt>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/eri.html');getStaticPage('homeLinks/eri.html')">E
+										Return Intermediary</a>
+								</dt>
+								<dt>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/BulkPANVerificationUser.html');getStaticPage('homeLinks/BulkPANVerificationUser.html')">Bulk
+										PAN Verification User</a>
+								</dt>
+								<dt>
+									<a href="javascript:void(0)"
+										onclick="setBaseUrl('homeLinks/TaxDeductorCollector.html');getStaticPage('homeLinks/TaxDeductorCollector.html')">Tax
+										Deductor and Collector</a>
+								</dt>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<p>
+							<a href="#" class="top"><span>Services</span></a>
+						</p>
+						<div class="submenu">
+							<dl>
+								<dt>
+									<a href="/e-Filing/UserLogin/LoginHome.html?nextPage=efile">Submit
+										Returns / Forms </a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/UserLogin/LoginHome.html?nextPage=taxCred">View
+										Form 26AS (Tax Credit)</a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/UserLogin/LoginHome.html?nextPage=taxDemand">
+										Outstanding Tax Demand </a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/Services/ITRVStatusLink.html"> ITR-V
+										Receipt Status </a>
+								</dt>
+								<dt>
+									<a
+										href="/e-Filing/UserLogin/LoginHome.html?nextPage=refundStatus">CPC
+										Refund Status </a>
+								</dt>
+								<dt>
+									<a
+										href="/e-Filing/UserLogin/LoginHome.html?nextPage=rectStatus">Rectification
+										Status </a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/Services/KnowYourJurisdictionLink.html">Know
+										Your Jurisdictional A.O. </a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/Services/KnowYourPanLink.html">Know Your
+										PAN</a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/Services/KnowYourTanLink.html">Know Your
+										TAN</a>
+								</dt>
+								<dt>
+									<a href="javascript:void(0)"
+										onclick="getStaticPage('ApplyOnlinePAN_TAN.html')">Apply
+										Online (PAN / TAN) </a>
+								</dt>
+								<!--<dt><a href="javascript:void(0)" onclick="getStaticPage('TaxCalculator.html')">Tax Calculator </a></dt>                 -->
+								<dt>
+									<a href="javascript:void(0)"
+										onclick="getStaticPage('EPayTaxConfirm.html')">E-Pay Tax</a>
+								</dt>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<p>
+							<a href="#" class="top"><span>e-Nivaran</span></a>
+						</p>
+						<div class="submenu">
+							<dl>
+								<dt>
+									<a href="/e-Filing/Services/GrievancePanHolderHomeAction.html">Submit
+										Grievance</a>
+								</dt>
+								<dt>
+									<a href="/e-Filing/Services/GrievanceSearchLinkPreLogin.html">View
+										Grievance Status</a>
+								</dt>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<p>
+							<a onclick="getStaticPage('Downloads.html')"
+								href="javascript:void(0)"><span>Downloads</span></a>
+						</p> <!-- <div class="submenu">            <dl>          <dt><a href="/e-Filing/Services/DownloadItrLink.html">Income Tax Return Forms</a></dt>					          <dt><a href="/e-Filing/Services/DownloadFormsLink.html">Forms (Other than ITR)</a></dt>			<dt><a href="/e-Filing/Services/DownloadSchemas.html">Schema Downloads</a></dt>		  <dt><a href="javascript:void(0)"					onclick="getStaticPage('DownloadWealthTax.html')">Form BB (Return of Net Wealth)</a></dt>		 <dt><a href="javascript:void(0)"					onclick="getStaticPage('DownloadsDSCUtility.html')">DSC Management Utility</a></dt>			 			            </dl>          </div> -->
+					</li>
+					<li>
+						<p>
+							<a href="javascript:void(0)"
+								onclick="getStaticPage('NewsAndUpdates/references-News&Updates.html')"><span>News
+									&amp; Updates</span></a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<!-- Header end -->
+		</header>
+		<div id="bodyContent">
+			<a name="main"></a>
+			<!-- Body start -->
+			<section class="ltcol">
+				<section class="greencol">
+					<h1>Quick Link</h1>
+					<ul class="clickableList">
+						<li><a href="javascript:void(0)"
+							onclick="getStaticPage('TaxCalculator.html')">Tax Calculator</a></li>
+						<li><a href="javascript:void(0)"
+							onclick="getStaticPage('ApplyOnlinePAN_TAN.html')">Apply
+								Online - PAN/TAN</a></li>
+						<li><a href="javascript:void(0)"
+							onclick="getStaticPage('EPayTaxConfirm.html')">E-Pay Tax</a></li>
+						<li><a
+							href="/e-Filing/UserLogin/LoginHome.html?nextPage=taxCred">View
+								Form 26AS (Tax Credit)</a></li>
+					</ul>
+				</section>
+				<div class="assistance" style="display: none">
+					<h1 align="center">Need Assistance?</h1>
+					<p align="center">
+						For Income tax related queries <br>
+						<strong>ASK : 1800 180 1961</strong>
+					</p>
+					<br>
+					<p align="center">
+						For Rectification and Refund<br>
+						<strong>CPC : 1800 425 2229</strong>
+					</p>
+					<br>
+					<p align="center">
+						For e-Filing of Returns<br> <strong>e-Filing: 1800
+							4250 0025 <br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91-80-26500025
+						</strong>
+					</p>
+					<p></p>
+				</div>
+			</section>
+			<div class="rightColumn" id="staticContentsUrl">
+				<div>
+					<div>
+						<h1>Know Your PAN</h1>
+					</div>
+					<div class="greyBorder"
+						style="padding-top: 1px; padding-bottom: 1px">
+						<div class="whitebg mar5">
+							<script type="text/javascript"
+								src="/itax/scripts/validation.js?1477612800000"></script>
+							<script type="text/javascript"
+								src="/e-Filing/ActionForJavaScript.html?actionName=/e-Filing/Services/KnowYourPan.html;jsessionid=8EBBCA8366DF96EBF3689549A21D04CACDBFD0EBCEDC94CE30796FEA602E3C8F.370VB4Y8HAV3Y&jsid=1477612800000">	</script>
+							<form id="KnowYourPan" name="KnowYourPan"
+								onsubmit="return validateForm_KnowYourPan(this) &amp;&amp; disableFormSubmit(this)"
+								action="/e-Filing/Services/KnowYourPan.html;jsessionid=8EBBCA8366DF96EBF3689549A21D04CACDBFD0EBCEDC94CE30796FEA602E3C8F.370VB4Y8HAV3Y"
+								method="post"
+								onreset="clearErrorMessages(this);clearErrorLabels(this);"
+								autocomplete="off">
+								<table cellspacing="0" cellpadding="0" width="100%" class="grid">
+									<tr style="display: none;">
+										<td><input type="hidden" name="requestId"
+											value="-916235984" id="KnowYourPan_requestId" /></td>
+									</tr>
+									<tr>
+										<td>
+											<div class="label">
+												<label for="dateField"> Date of
+													Birth/Incorporation (DD/MM/YYYY) <span class="mandatory">*</span>
+												</label>
+											</div>
+											<div class="field">
+												<input type="text" autocomplete="off" name="dateOfBirth"
+													maxlength="10" value="09/05/1985"
+													onchange="validateField_dateOfBirth(this,true)"
+													id="dateField" class="date"
+													onkeypress="return onlyDate(event)" />
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="label">
+												<label for="KnowYourPan_userNameDetails_surName">
+													Surname <span class="mandatory">*</span>
+												</label>
+											</div>
+											<div class="field">
+												<input type="text" autocomplete="off"
+													name="userNameDetails.surName" maxlength="75" value="sethi"
+													onblur="validateField_userNameDetails_surName(this,true)"
+													id="KnowYourPan_userNameDetails_surName"
+													onkeypress="return onlyName(event)" />
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="label">
+												<label for="KnowYourPan_userNameDetails_middleName">
+													Middle Name </label>
+											</div>
+											<div class="field">
+												<input type="text" autocomplete="off"
+													name="userNameDetails.middleName" maxlength="25" value=""
+													onblur="validateField_userNameDetails_middleName(this,true)"
+													id="KnowYourPan_userNameDetails_middleName"
+													onkeypress="return onlyMidName(event)" />
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="label">
+												<label for="KnowYourPan_userNameDetails_firstName">
+													First Name </label>
+											</div>
+											<div class="field">
+												<input type="text" autocomplete="off"
+													name="userNameDetails.firstName" maxlength="25"
+													value="sarbeswar"
+													onblur="validateField_userNameDetails_firstName(this,true)"
+													id="KnowYourPan_userNameDetails_firstName"
+													onkeypress="return onlyMidName(event)" />
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="white">
+											<fieldset>
+												<legend> Captcha Code </legend>
+											</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<td><div class="label">
+												<label>Image</label>
+											</div>
+											<div class="field">
+												<img id="captchaImg" class="captchaImgBox"
+													src="/e-Filing/CreateCaptcha.do?0.8268039320401454"
+													alt="Type the text in the image" /> <a
+													class="refreshImg refresh" href="javascript:void(0)"
+													aria-label="refresh captcha" onclick="changeImg()"></a> <a
+													class="PlaySound refreshImg audioImg"
+													href="javascript:void(0)"
+													aria-label="listen to the captcha"
+													onclick="playAudioCaptcha()"> </a>
+												<audio type="audio/wav" src="" controls="false"
+													hidden="true" id="audioCaptcha"></audio>
+											</div></td>
+									</tr>
+									<tr>
+										<td><div errorFor="KnowYourPan_captchaCode" class="error">
+												Invalid Code. Please enter the code as appearing in the
+												Image.</div>
+											<div class="label">
+												<label for="KnowYourPan_captchaCode"> Enter the
+													code as in above image <span class="mandatory">*</span>
+												</label>
+											</div>
+											<div class="field">
+												<input type="text" autocomplete="off" name="captchaCode"
+													maxlength="6" value=""
+													onblur="validateField_captchaCode(this,true)"
+													id="KnowYourPan_captchaCode"
+													onkeypress="return onlyNumbersChars(event)" />
+											</div></td>
+									</tr>
+									<tr style="padding-top: 25px;">
+										<td class="whitebg">
+											<div
+												style="width: 43%; float: left; text-align: right; padding-right: 5px;">
+												<input type="submit" value="Submit" class="btnOrange" />
+											</div>
+											<div
+												style="float: left; text-align: left; padding-left: 5px;">
+												<input type="button" value="Cancel" class="btnOrange"
+													onclick="backToHomePageGuest()" />
+											</div>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+					<script type="text/javascript">$( document ).ready(function() {	$("#dateField1").datepicker({		showOn : "button",		buttonImage : "/itax/images/calendar.png",		buttonImageOnly : true,		changeMonth : true,		changeYear : true,		yearRange : "-100:",		dateFormat : "dd/mm/yy",		buttonText : "Choose",		showOtherMonths : true,		selectOtherMonths : true		});	$('#dateField1').mask('00/00/0000');});</script>
+				</div>
+			</div>
+			<!-- Body end -->
+		</div>
+		<div class="push"></div>
+		<map id="FontMap" name="FontMap">
+			<area alt="Minimize" onclick="javascript:changeFontSize(-1,-1);"
+				coords="5,4,22,15" href="javascript:void(0)" shape="rect" />
+			<area alt="Standard" onclick="javascript:resetFonSize();"
+				coords="26,2,43,16" href="javascript:void(0)" shape="rect" />
+			<area alt="Maximize" onclick="javascript:changeFontSize(1,1);"
+				coords="48,3,66,15" href="javascript:void(0)" shape="rect" />
+		</map>
+	</section>
+	<footer id="footer">
+		<div class="footerlinks footer_owner">
+			<table class="tbl_footer">
+				<tr>
+					<td class="al-l"><a href="javascript:void(0)"
+						onclick="getStaticPage('NationalGov.html')"><img
+							src="/itax/images/indiagoin.jpg" alt="india.gov.in" class="va-c" /></a></td>
+					<td class="al-c" style="font-weight: normal">
+						<div>
+							<a href="javascript:void(0)"
+								onclick="getStaticPage('WebsitePolicy.html')">Website
+								Policies</a> | <a href="javascript:void(0)"
+								onclick="getStaticPage('RTI.html')"> RTI</a> | <a
+								href="javascript:void(0)"
+								onclick="getStaticPage('Grievance.html')">Grievance</a> | <a
+								href="javascript:void(0)"
+								onclick="getStaticPage('UsefulLinks.html')">Useful Links</a> | <a
+								href="javascript:void(0)"
+								onclick="getStaticPage('TermsOfUse.html')">Terms of Use</a> | <a
+								href="/e-Filing/Services/SiteMapLink.html">Site Map</a> | <a
+								href="javascript:void(0)"
+								onclick="getStaticPage('Disclaimer.html')">Disclaimer</a>
+						</div>
+						<div>Copyright @ Income Tax Department, Ministry of Finance,
+							Government of India. All Rights Reserved</div>
+						<div>Site Best Viewed in 1024 x 768 resolution | Site Last
+							Updated on 28/10/2016</div>
+					</td>
+					<td class="al-r va-c"><a
+						href="https://www.entrust.net/customer/profile.cfm?domain=incometaxindiaefiling.gov.in&lang=en"
+						target="_blank"><img class="va-c"
+							src="/itax/images/entrust.png" alt="Entrust Certificate" /></a></td>
+				</tr>
+			</table>
+		</div>
+		<div class="footer_viewdetails"></div>
+	</footer>
+</body>
+</html>
